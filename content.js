@@ -21,7 +21,7 @@ $(document).ready(function() {
 			var sub = encodeURIComponent(storage.sub);
 			var separator = ((link.indexOf('?')==-1)?'?':'&');
 			// Select all <a href="http..."></a> tags
-			$('a[href^=http]').each(function() {
+			$('a').each(function() {
 				// Select aliexpress.com links
 				if(/aliexpress([\.]{1})com/i.test(this.hostname)) {
 					// Replace links
