@@ -1,18 +1,17 @@
 ﻿/*
- =======================================
- == AliExpress reLinker (ePN)         ==
- == Automatic replacement of links to ==
- == ePN DeepLink for AliExpress.      ==
- == Author: TheSoulTaker48            ==
- == E-Mail: thesoultaker48@gmail.com  ==
- == URL: http://tst48.wordpress.com   ==
- =======================================
+ =========================================================================
+ == AliExpress reLinker (ePN)                                           ==
+ == Automatic replacement of links to ePN DeepLink for AliExpress.      ==
+ == Author: Sergey Avdeev                                               ==
+ == E-Mail: avdeevsv91@gmail.com                                        ==
+ == URL: https://github.com/avdeevsv91/aliexpress_epn_relinker_chrome   ==
+ =========================================================================
 */
 
 // Write default values to local storage (if don`t exist)
 function setDefaultValues(force) {
 	if((force == true) || (localStorage.link === undefined)) {
-		localStorage.link = 'http://alipromo.com/redirect/cpa/o/o3dg77s3ecabxunu8mu33vxvw2nrlxyh/';
+		localStorage.link = 'https://buyeasy.by/redirect/cpa/o/pyhi7gf87v3htw6xqch0xk4cpkyrpbyn/';
 	}
 	if((force == true) || (localStorage.sub === undefined)) {
 		localStorage.sub = 'default_chrome';
