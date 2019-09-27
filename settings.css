@@ -1,14 +1,12 @@
 ﻿/*
- =======================================
- == AliExpress reLinker (ePN)         ==
- == Automatic replacement of links to ==
- == ePN DeepLink for AliExpress.      ==
- == Author: TheSoulTaker48            ==
- == E-Mail: thesoultaker48@gmail.com  ==
- == URL: http://tst48.wordpress.com   ==
- =======================================
+ =========================================================================
+ == AliExpress reLinker (ePN)                                           ==
+ == Automatic replacement of links to ePN DeepLink for AliExpress.      ==
+ == Author: Sergey Avdeev                                               ==
+ == E-Mail: avdeevsv91@gmail.com                                        ==
+ == URL: https://github.com/avdeevsv91/aliexpress_epn_relinker_chrome   ==
+ =========================================================================
 */
-
 
 * {
 	margin: 0;
