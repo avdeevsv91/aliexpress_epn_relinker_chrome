@@ -62,7 +62,7 @@ $(document).ready(function() {
 	if($_GET['aff_trace_key']) { // URL contains information about ePN
 		// Set (or update) relinker cookie
 		var cookie = {
-			url: 'http://aliexpress.com',
+			url: 'https://aliexpress.com',
 			name: 'relinker',
 			value: Math.floor(new Date().getTime()/1000).toString(),
 			domain: '.aliexpress.com',

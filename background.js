@@ -11,7 +11,7 @@
 // Write default values to local storage (if don`t exist)
 function setDefaultValues(force) {
 	if((force == true) || (localStorage.link === undefined)) {
-		localStorage.link = 'https://buyeasy.by/redirect/cpa/o/pyhi7gf87v3htw6xqch0xk4cpkyrpbyn/';
+		localStorage.link = 'https://gotbest.by/redirect/cpa/o/q296f8huk6xhzhjlofgbio114xtirhsp/';
 	}
 	if((force == true) || (localStorage.sub === undefined)) {
 		localStorage.sub = 'default_chrome';
