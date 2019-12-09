@@ -35,19 +35,21 @@ $(document).ready(function() {
 	}
 	// MutationObserver for replace links function
 	function replaceObserver(selector) {
-		var target = document.querySelector(selector);
-		if(target) {
-			var observer = new MutationObserver(function(mutations) {
-				mutations.forEach(function(mutation) {
-					replaceLinks();
+		var targets = document.querySelectorAll(selector);
+		if(targets) {
+			targets.forEach(function(target) {
+				var observer = new MutationObserver(function(mutations) {
+					mutations.forEach(function(mutation) {
+						replaceLinks();
+					});
 				});
+				observer.observe(target, {
+					attributes: true,
+					childList: true,
+					characterData: true
+				});
+				return observer;
 			});
-			observer.observe(target, {
-				attributes: true,
-				childList: true,
-				characterData: true
-			});
-			return observer;
 		}
 		return false;
 	}
@@ -77,7 +79,7 @@ $(document).ready(function() {
 			chrome.runtime.sendMessage({method: 'getLocalStorage'}, function(storage) {
 				if((cookie === null) || (storage.forced == 'true' && Math.floor(new Date().getTime()/1000)-cookie.value > storage.ttl)) {
 					// Replacement for product-list (ajax)
-					replaceObserver('.product-list');
+					replaceObserver('ul');
 					// Replacement of links on DOM ready
 					replaceLinks();
 				}
