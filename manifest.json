@@ -5,7 +5,7 @@
 	"short_name": "__MSG_short_name__",
 	"description": "__MSG_description__",
 	"homepage_url": "https://github.com/avdeevsv91/aliexpress_epn_relinker_chrome",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"icons": {
 		"16": "icon16.png",
 		"48": "icon48.png",
@@ -22,19 +22,18 @@
 	"content_scripts": [
 		{
 			"js": [
-				"jquery-1.12.1.min.js",
+				"jquery-3.4.1.min.js",
 				"content.js"
 			], 
 			"matches": [
-				"*://aliexpress.com/*",
 				"*://*.aliexpress.com/*"
 			], 
 			"run_at": "document_idle"
 		}
 	],
 	"permissions": [
+		"tabs",
 		"cookies",
-		"*://aliexpress.com/*",
 		"*://*.aliexpress.com/*"
 	]
 }
