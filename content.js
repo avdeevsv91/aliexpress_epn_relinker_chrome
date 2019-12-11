@@ -22,12 +22,15 @@ $(document).ready(function() {
 			$('a').each(function() {
 				// Select aliexpress.com links
 				if(/aliexpress([\.]{1})com/i.test(this.hostname)) {
-					// Replace links
-					var url = encodeURIComponent(this.href);
-					$(this).attr('href', link+separator+'sub='+sub+'&to='+url);
-					// No referrer
-					if(storage.noreferrer == 'true') {
-						$(this).attr('rel', 'noreferrer');
+					// Select item links
+					if(/^\/item\/(.+)$/i.test(this.pathname)) {
+						// Replace links
+						var url = encodeURIComponent(this.href);
+						$(this).attr('href', link+separator+'sub='+sub+'&to='+url);
+						// No referrer
+						if(storage.noreferrer == 'true') {
+							$(this).attr('rel', 'noreferrer');
+						}
 					}
 				}
 			});
