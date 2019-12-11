@@ -80,7 +80,7 @@ body {
 	-webkit-box-shadow: 0px 0px 9px #888F99;
 }
 
-input, select {
+input {
 	display: block;
 	width: 270px;
 	margin: 5px 0px 15px 10px;
@@ -95,29 +95,18 @@ input, select {
 	font-size: 14px;
 }
 
-input[type=checkbox] {
-    float: left;
-	width: auto;
-}
-
-label.checkbox_label {
-	display: table-caption;
-	margin-bottom: 15px;
-	width: 270px;
-}
-
 input[type=submit] {
 	width:120px;
 	margin: 5px auto 0 90px;
 	cursor: pointer;
 }
 
-input:focus, select:focus {
+input:focus {
 	border: 1px solid #808090;
 	color: #506070;
 }
 
-input:hover, select:hover {
+input:hover {
 	background: #FFF;
 }
 

@@ -8,32 +8,10 @@
  =========================================================================
 */
 
-// Write default values to local storage (if don`t exist)
-function setDefaultValues(force) {
-	if((force == true) || (localStorage.link === undefined)) {
-		localStorage.link = 'https://gotbest.by/redirect/cpa/o/q296f8huk6xhzhjlofgbio114xtirhsp/';
-	}
-	if((force == true) || (localStorage.sub === undefined)) {
-		localStorage.sub = 'default_chrome';
-	}
-	if((force == true) || (localStorage.forced === undefined)) {
-		localStorage.forced = false;
-	}
-	if((force == true) || (localStorage.ttl === undefined)) {
-		localStorage.ttl = 60;
-	}
-	if((force == true) || (localStorage.noreferrer === undefined)) {
-		localStorage.noreferrer = true;
-	}
-}
-
 // Listener for onInstalled action
 chrome.runtime.onInstalled.addListener(function(object) {
-	// Set default values after install
-	if(object.reason == 'install') {
-		setDefaultValues(true);
-	} else if(object.reason == 'update') {
-		// Remove old links
+	// Remove old links
+	if(object.reason == 'update') {
 		if(
 			(localStorage.link == 'http://alipromo.com/redirect/cpa/o/o3dg77s3ecabxunu8mu33vxvw2nrlxyh/')
 			||
@@ -41,7 +19,13 @@ chrome.runtime.onInstalled.addListener(function(object) {
 		) {
 			localStorage.removeItem('link');
 		}
-		setDefaultValues(false);
+	}
+	// Set default values
+	if(localStorage.link === undefined) {
+		localStorage.link = 'https://gotbest.by/redirect/cpa/o/q296f8huk6xhzhjlofgbio114xtirhsp/';
+	}
+	if(localStorage.sub === undefined) {
+		localStorage.sub = 'default_chrome';
 	}
 });
 
@@ -51,12 +35,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		case 'getLocalStorage': // Return local storage object
 			sendResponse(localStorage);
 			break;
-		case 'getCookie': // Retrieves information about a single cookie
-			chrome.cookies.get(request.details, sendResponse);
-			return true;
-		case 'setCookie': // Sets a cookie with the given cookie data
-			chrome.cookies.set(request.details, sendResponse);
-			return true;
 		default:
 			sendResponse({}); // None
 	}
