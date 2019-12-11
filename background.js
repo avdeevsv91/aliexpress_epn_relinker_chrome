@@ -33,6 +33,14 @@ chrome.runtime.onInstalled.addListener(function(object) {
 	if(object.reason == 'install') {
 		setDefaultValues(true);
 	} else if(object.reason == 'update') {
+		// Remove old links
+		if(
+			(localStorage.link == 'http://alipromo.com/redirect/cpa/o/o3dg77s3ecabxunu8mu33vxvw2nrlxyh/')
+			||
+			(localStorage.link == 'https://buyeasy.by/redirect/cpa/o/pyhi7gf87v3htw6xqch0xk4cpkyrpbyn/')
+		) {
+			localStorage.removeItem('link');
+		}
 		setDefaultValues(false);
 	}
 });
