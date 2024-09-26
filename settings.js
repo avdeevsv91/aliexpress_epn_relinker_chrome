@@ -20,17 +20,21 @@ $(document).ready(function() {
 	// i18n locales
 	$('#saved').html(chrome.i18n.getMessage('saved_message'));
 	$('label[for=link_input]').html(chrome.i18n.getMessage('deeplink_label'));
+    $('label[for=erid_token]').html(chrome.i18n.getMessage('erid_label'));
 	$('label[for=sub_input]').html(chrome.i18n.getMessage('sub_label'));
 	$('input[type=submit]').val(chrome.i18n.getMessage('submit_value'));
 	$('#author_title').html(chrome.i18n.getMessage('author_title'));
 	// Restore options from local storage
 	$('input[type!=submit]').each(function() {
-		$(this).val(localStorage[$(this).attr('name')]);
+        let item = $(this).attr('name');
+        chrome.storage.local.get([item]).then((result) => {
+            $(this).val(result[item]);
+        });
 	});
 	// Save options to local storage
 	$('#save').click(function() {
 		$('input[type!=submit]').each(function() {
-			localStorage[$(this).attr('name')] = $(this).val();
+            chrome.storage.local.set({[$(this).attr('name')]: $(this).val()});
 		});
 		$('#saved').hide();
 		$('#saved').slideDown('slow');

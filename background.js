@@ -10,32 +10,20 @@
 
 // Listener for onInstalled action
 chrome.runtime.onInstalled.addListener(function(object) {
-	// Remove old links
-	if(object.reason == 'update') {
-		if(
-			(localStorage.link == 'http://alipromo.com/redirect/cpa/o/o3dg77s3ecabxunu8mu33vxvw2nrlxyh/')
-			||
-			(localStorage.link == 'https://buyeasy.by/redirect/cpa/o/pyhi7gf87v3htw6xqch0xk4cpkyrpbyn/')
-		) {
-			localStorage.removeItem('link');
-		}
-	}
 	// Set default values
-	if(localStorage.link === undefined) {
-		localStorage.link = 'https://gotbest.by/redirect/cpa/o/q296f8huk6xhzhjlofgbio114xtirhsp/';
-	}
-	if(localStorage.sub === undefined) {
-		localStorage.sub = 'default_chrome';
-	}
-});
-
-// Listener for getLocalStorage method
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-	switch(request.method) {
-		case 'getLocalStorage': // Return local storage object
-			sendResponse(localStorage);
-			break;
-		default:
-			sendResponse({}); // None
-	}
+    chrome.storage.local.get(['link']).then((result) => {
+        if(result.link === undefined) {
+            chrome.storage.local.set({link: 'https://gotbest.by/redirect/cpa/o/q296f8huk6xhzhjlofgbio114xtirhsp/'});
+        }
+    });
+    chrome.storage.local.get(['erid']).then((result) => {
+        if(result.erid === undefined) {
+            chrome.storage.local.set({erid: '2SDnjdSefDU'});
+        }
+    });
+    chrome.storage.local.get(['sub']).then((result) => {
+        if(result.sub === undefined) {
+            chrome.storage.local.set({sub: 'default_chrome'});
+        }
+    });
 });

@@ -20,6 +20,9 @@
 	"deeplink_label": {
 		"message": "DeepLink URL:"
 	},
+	"erid_label": {
+		"message": "ERID token:"
+	},
 	"sub_label": {
 		"message": "Sub (optional):"
 	},
